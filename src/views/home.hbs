@@ -1,0 +1,71 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between">
+    <h1>Student Details</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Register number</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Gender</th>
+        {{#if is_admin}}
+        <th>Action</th>
+        {{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#if is_admin}}
+      {{#each students}}
+      <tr>
+        <th>{{this.id}}</th>
+        <td>{{this.regno}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.class}}</td>
+        <td>{{this.gender}}</td>
+        <td><a href="/students/edit/{{this.id}}">Edit</a> | <a href="#" data-toggle="modal"
+            data-target="#deleteModal{{this.id}}">Delete</a></td>
+      </tr>
+      <div class="modal fade" id="deleteModal{{this.id}}" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Delete</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete?
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-secondary text-white" data-dismiss="modal">Close</a>
+              <a class="btn btn-danger text-white" href="/students/delete/{{this.id}}">Yes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{/each}}
+      {{else}}
+      {{#each students}}
+      <tr>
+        <th>{{this.id}}</th>
+        <td>{{this.regno}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.class}}</td>
+        <td>{{this.gender}}</td>
+      </tr>
+      {{/each}}
+      {{/if}}
+    </tbody>
+
+  </table>
+  <div class="d-flex justify-content-between">
+    {{#if is_admin}}
+    <a href="/students/new" class="btn btn-primary my-auto">Add New Student</a>
+    {{/if}}
+  </div>
+</div>

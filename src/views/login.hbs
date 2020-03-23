@@ -1,0 +1,140 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    .label {
+      width: 100px;
+      text-align: center;
+    }
+
+    .login-form {
+      margin-top: 10%;
+      margin-left: 0%;
+      font-size: 23px
+    }
+
+    .alert {
+      width: 350px;
+      padding: 10px;
+      background-color:cyan;
+      color:black;
+      margin-bottom: 10px;
+    }
+
+    .closebtn {
+      margin-left: 10px;
+      color:darkcyan;
+      font-weight: bold;
+      float: right;
+      font-size: 30px;
+      line-height: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+
+    body {
+      background-image: url(https://i.dlpng.com/static/png/4688350-empty-english-school-classroom-motion-background-storyblocks-video-empty-classroom-png-1920_1080_preview.png);
+      background-repeat: no-repeat;
+      min-height: 679px;
+      background-size: cover;
+    }
+
+    .banner {
+      background-size: 25em, 25em, auto, cover;
+      padding: 2em 0;
+    }
+
+    .inner {
+      background-size: auto;
+      display: block;
+      padding: 0% 40%;
+
+      header {
+        h2 {
+          font-size: 1.5em;
+        }
+      }
+
+      p {
+        text-align: center;
+      }
+
+      br {
+        display: none;
+      }
+    }
+  </style>
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="container-fluid full">
+    <div class="card bg-dark text-white">
+      {{!-- <img src="https://images.unsplash.com/photo-1528701202755-cf9158dc3da6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ.jpg" class="card-img" alt="..." style="background-size:100%"> --}}
+      <div class="card-img-overlay">
+        <div class="text-center">
+          <div class="banner">
+            <div class="inner">
+              <div class="card text-white bg-dark mb-3" style="width: 25em;">
+                <div class="card-header">
+                  <h3>St Marys Girls Higher Secondary School</h3>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Login Here</h4>
+                  <hr>
+                  <div class="card-text text-light text-center">
+                    <div class="main">
+                      <div class="col-md-20 col-sm-20">
+                        <div>
+                          {{#if message}}
+                          <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';"
+                              style="width:100px">&times;</span>
+                            {{message}}
+                          </div>
+                          {{/if}}
+                        </div>
+                        <div class="login-form">
+                          <form action="/auth/login" method="POST">
+                            <div class="form-group">
+                              <label class="label">Email</label><br>
+                              <input class="form-control" name="email" type="text" class="form-control"
+                                placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                              <label class="label">Password</label><br>
+                              <input class="form-control" name="password" type="password" class="form-control"
+                                placeholder="Password"><br><br>
+                              <button href="submit" class="btn btn-primary btn-lg" style="width:200px"> Login
+                              </button><br><br>
+                              <a href="/auth/register" class="btn btn-primary btn-lg" style="width:200px">Register</a>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+</body>
+{{!-- background-image: url(https://images.unsplash.com/photo-1528701202755-cf9158dc3da6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ.jpg); --}}
